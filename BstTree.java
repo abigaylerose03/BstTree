@@ -22,7 +22,6 @@ class BSTNode {
     }
 
     /* constructor */
-
     public BSTNode(int n) {
 
         left = null;
@@ -63,13 +62,16 @@ class BST {
 	public void insert(int data) { root = insert(root, data); }
 	
 
-	/* method to insert data recursively */
+	/* method to insert data recursively
+	@param node: the left and right branches 
+	@param data: the actual numbers involved with the bst tree
+	*/
 	private BSTNode insert(BSTNode node, int data) {
 		if(node == null) {
 			node = new BSTNode(data);
 		} else {
 			if(data <= node.getData())
-				node.left = insert(node.left, data);
+				node.left = insert(node.left, data); 
 			else 
 				node.right = insert(node.right, data);
 		}
@@ -99,10 +101,10 @@ class BST {
 			/* set the left and right nodes, just in case they're already null */ 
 			if(lt == null && rt == null) return null;
 			else if(lt == null) {
-				p = rt;
+				p = rt; // the var, p, takes right node if LEFT ROOT is empty
 				return p;
 			} else if(rt == null) {
-				p = lt;
+				p = lt; // the var, p, takes left node if RIGHT ROOT is empty 
 				return p;
 			} else {
 				p2 = rt;
@@ -241,6 +243,6 @@ class BinarySearchTree {
 
 				System.out.println("\nDo you wnat to continue (Type y or n)");
 				ch = scan.next().charAt(0);
-			} while(ch == 'Y' || ch == 'y');
+			} while(ch == 'Y' || ch == 'y'); /* keep on prompting user until the choice is something other than Y or y */
 		}
 }
